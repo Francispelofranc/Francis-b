@@ -2,14 +2,14 @@ const os = require('os');
 const pidusage = require('pidusage');
 
 module.exports.config = {
-		name: "Deploytime",
+		name: "timeup",
 		version: "1.0.2",
 		role: 0,
 		credits: "cliff",
 		description: "uptime",
 		hasPrefix: false,
 		cooldowns: 5,
-		aliases: ["dep"]
+		aliases: ["Timeup"]
 };
 
 function byte2mb(bytes) {
