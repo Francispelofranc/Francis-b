@@ -1,9 +1,9 @@
 module.exports.config = {
-  name: 'cmd',
+  name: 'help',
   version: '1.0.0',
   role: 0,
   hasPrefix: true,
-  aliases: ['help'],
+  aliases: ['info'],
   description: "Beginner's guide",
   usage: "Help [page] or [command]",
   credits: 'Develeoper',
@@ -27,11 +27,11 @@ module.exports.run = async function({
       let end = start + pages;
       let helpMessage = `Command List:\n\n`;
       for (let i = start; i < Math.min(end, commands.length); i++) {
-        helpMessage += `\t${i + 1}.  ${prefix}${commands[i]}\n`;
+        helpMessage += `\t${i + 1}. 「 ${prefix}${commands[i]} 」\n`;
       }
-      helpMessage += '\n👀Event List:🆔\n\n';
+      helpMessage += '\nEvent List:\n\n';
       eventCommands.forEach((eventCommand, index) => {
-        helpMessage += `\t${index + 1}.  ${prefix}${eventCommand}\n`;
+        helpMessage += `\t${index + 1}. 「 ${prefix}${eventCommand} 」\n`;
       });
       helpMessage += `\nPage ${page}/${Math.ceil(commands.length / pages)}. To view the next page, type '${prefix}help page number'. To view information about a specific command, type '${prefix}help command name'.`;
       api.sendMessage(helpMessage, event.threadID, event.messageID);
@@ -42,11 +42,11 @@ module.exports.run = async function({
       let end = start + pages;
       let helpMessage = `Command List:\n\n`;
       for (let i = start; i < Math.min(end, commands.length); i++) {
-        helpMessage += `\t${i + 1}.  ${prefix}${commands[i]} \n`;
+        helpMessage += `\t${i + 1}. 「 ${prefix}${commands[i]} 」\n`;
       }
       helpMessage += '\nEvent List:\n\n';
       eventCommands.forEach((eventCommand, index) => {
-        helpMessage += `\t${index + 1}. ${prefix}${eventCommand} \n`;
+        helpMessage += `\t${index + 1}. 「 ${prefix}${eventCommand} 」\n`;
       });
       helpMessage += `\nPage ${page} of ${Math.ceil(commands.length / pages)}`;
       api.sendMessage(helpMessage, event.threadID, event.messageID);
@@ -91,8 +91,8 @@ module.exports.handleEvent = async function({
     messageID,
     body
   } = event;
-  const message = prefix ? '🥎 system prefix : ' +prefix '\n 😑you chat prefix: ' + prefix: "Sorry i don't have prefix";
+  const message = prefix ? 'This is my prefix: ' + prefix : "Sorry i don't have prefix";
   if (body?.toLowerCase().startsWith('prefix')) {
     api.sendMessage(message, threadID, messageID);
   }
-    }
+  }
