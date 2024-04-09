@@ -15,7 +15,7 @@ module.exports.run = async function ({ api, event, args }) {
 		try {
 				const prompt = args.join(" ");
 				if (!prompt) {
-						await api.sendMessage("-----🛟🧭----\nj'écoute.\n--------", event.threadID);
+						await api.sendMessage("-salut cmt puis-je vous aider aujourd'hui -", event.threadID);
 						return;
 				}
 
