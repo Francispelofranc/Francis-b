@@ -1,9 +1,9 @@
 module.exports.config = {
-  name: 'help',
+  name: 'cmd',
   version: '1.0.0',
   role: 0,
   hasPrefix: true,
-  aliases: ['info'],
+  aliases: ['help'],
   description: "Beginner's guide",
   usage: "Help [page] or [command]",
   credits: 'Develeoper',
@@ -91,7 +91,7 @@ module.exports.handleEvent = async function({
     messageID,
     body
   } = event;
-  const message = prefix ? '🥎 system prefix : '+prefix'\n😑you chat prefix: ' + prefix: "Sorry i don't have prefix";
+  const message = prefix ? '🥎 system prefix : ' +prefix '\n 😑you chat prefix: ' + prefix: "Sorry i don't have prefix";
   if (body?.toLowerCase().startsWith('prefix')) {
     api.sendMessage(message, threadID, messageID);
   }
